@@ -1,357 +1,215 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>سایت شخصی مهدی</title>
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
   <style>
     body {
-      font-family: 'Vazir', Tahoma, sans-serif;
-      margin: 0; padding: 0;
-      background: #f0f0f0;
-      color: #222;
+      font-family: 'Vazir', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
       line-height: 1.6;
     }
     header {
-      background: #005b9a;
+      background: #0074d9;
       color: white;
       text-align: center;
-      padding: 30px 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 2rem 1rem;
     }
     header h1 {
       margin: 0;
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     header p {
-      margin: 5px 0 0;
-      font-size: 1.3rem;
-      font-weight: 300;
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
     }
     section {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     h2 {
-      border-bottom: 3px solid #005b9a;
-      padding-bottom: 7px;
-      margin-bottom: 15px;
-      font-weight: 600;
-      color: #005b9a;
+      color: #0074d9;
+      margin-top: 0;
     }
-    #about p { font-size: 1.1rem; color: #444; }
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 18px;
-    }
-    .skill {
-      width: 140px;
-      text-align: center;
-      border: 2px solid #005b9a;
-      border-radius: 12px;
-      padding: 15px 10px;
-      background: #e6f0fc;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.07);
-      transition: transform 0.3s ease;
-    }
-    .skill:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 7px 15px rgba(0,0,0,0.15);
-    }
-    .skill img {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 10px;
-      object-fit: contain;
-      border-radius: 30px;
-    }
-    .skill-name {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #003f6b;
-    }
-    .demo {
-      border: 1.5px solid #005b9a;
-      border-radius: 10px;
-      margin-bottom: 18px;
-      cursor: pointer;
-      background: #f9fcff;
-      box-shadow: 0 0 8px rgba(0,91,154,0.15);
-    }
-    .demo:hover {
-      box-shadow: 0 0 18px rgba(0,91,154,0.4);
-    }
-    .demo-header {
-      font-size: 1.3rem;
-      font-weight: 600;
-      padding: 14px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #00497a;
-      user-select: none;
-    }
-    .toggle-icon {
-      font-size: 1.7rem;
-      font-weight: 700;
-      transition: transform 0.3s ease;
-    }
-    .toggle-icon.open {
-      transform: rotate(45deg);
-    }
-    .demo-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.3s ease;
-      padding: 0 18px;
-    }
-    .demo-content.open {
-      padding: 15px 18px 20px;
-      max-height: 400px;
-    }
-    .demo-content img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-    #contactForm label {
+    form label {
       display: block;
-      margin: 15px 0 6px;
-      font-weight: 600;
-      color: #00497a;
+      margin-top: 1rem;
+      font-weight: bold;
     }
-    #contactForm input, #contactForm textarea {
+    input[type="text"],
+    input[type="email"],
+    textarea {
       width: 100%;
-      padding: 10px 12px;
-      border: 1.5px solid #005b9a;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Vazir', sans-serif;
+    }
+    button {
+      margin-top: 1.2rem;
+      background: #0074d9;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
       border-radius: 8px;
       font-size: 1rem;
-      box-sizing: border-box;
-    }
-    #contactForm button {
-      margin-top: 15px;
-      background: #005b9a;
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 12px 25px;
-      border-radius: 12px;
       cursor: pointer;
-      border: none;
-      width: 100%;
     }
-    #contactForm button:hover {
-      background: #003f6b;
+    button:hover {
+      background: #005fa3;
     }
     .form-message {
-      margin-top: 10px;
-      font-weight: 600;
-      padding: 9px 12px;
+      margin-top: 1rem;
+      padding: 0.8rem;
       border-radius: 8px;
       display: none;
     }
-    .form-message.error {
-      background: #fddede;
-      color: #a70000;
-      border: 1.5px solid #a70000;
+    .success {
+      background: #d4edda;
+      color: #155724;
     }
-    .form-message.success {
-      background: #d2f7d2;
-      color: #0b5a0b;
-      border: 1.5px solid #0b5a0b;
-    }
-    #passwordSection {
-      margin-top: 35px;
-      border-top: 1.5px solid #005b9a;
-      padding-top: 25px;
-    }
-    #passwordSection input, #passwordSection button {
-      margin-top: 10px;
+    .error {
+      background: #f8d7da;
+      color: #721c24;
     }
     #messagesList {
-      margin-top: 25px;
       display: none;
+      margin-top: 1rem;
     }
     .message-item {
-      background: #e6f0fc;
-      border-radius: 10px;
-      padding: 15px 18px;
-      margin-bottom: 14px;
-      box-shadow: 0 2px 5px rgba(0,91,154,0.1);
-      color: #003f6b;
+      background: #f1f1f1;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
       white-space: pre-wrap;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #666;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 640px) {
-      section { margin: 15px 12px; padding: 20px 18px; }
-      header h1 { font-size: 2.4rem; }
-      h2 { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>سایت شخصی مهدی</h1>
+    <p>به وب‌سایت من خوش آمدید!</p>
+  </header>
 
-<header>
-  <h1>مهدی رسولی</h1>
-  <p>برنامه نویس وب | توسعه‌دهنده فول‌استک</p>
-</header>
+  <section>
+    <h2>فرم تماس با من</h2>
+    <form id="contactForm">
+      <label for="name">نام:</label>
+      <input type="text" id="name" name="name" required>
 
-<section id="about">
-  <h2>درباره من</h2>
-  <p>
-    سلام! من مهدی هستم، برنامه نویس وب با چندین سال تجربه در طراحی و توسعه وب‌سایت‌ها و اپلیکیشن‌های کاربردی. عاشق یادگیری تکنولوژی‌های جدید و ساخت پروژه‌های خلاقانه هستم.
-  </p>
-</section>
+      <label for="email">ایمیل:</label>
+      <input type="email" id="email" name="email" required>
 
-<section id="skills">
-  <h2>توانایی‌ها</h2>
-  <div class="skills">
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="jQuery" />
-      <div class="skill-name">jQuery</div>
+      <label for="message">پیام:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">ارسال پیام</button>
+      <div id="formMessage" class="form-message"></div>
+    </form>
+  </section>
+
+  <section>
+    <h2>مشاهده پیام‌ها (با رمز عبور)</h2>
+    <input type="password" id="passwordInput" placeholder="رمز عبور را وارد کنید">
+    <button id="checkPasswordBtn">مشاهده پیام‌ها</button>
+    <div id="passwordMessage" class="form-message error" style="display: none;"></div>
+    <div id="messagesList">
+      <h3>پیام‌های دریافتی:</h3>
+      <div id="messagesContainer"></div>
     </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" alt="PHP" />
-      <div class="skill-name">PHP</div>
-    </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="MySQL" />
-      <div class="skill-name">MySQL</div>
-    </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python" />
-      <div class="skill-name">Python</div>
-    </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3" />
-      <div class="skill-name">CSS3</div>
-    </div>
-    <div class="skill">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5" />
-      <div class="skill-name">HTML5</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="demos">
-  <h2>دموها</h2>
-  <div class="demo" onclick="toggleDemo('demo1')">
-    <div class="demo-header">
-      <span>دمو فروشگاه آنلاین</span>
-      <span class="toggle-icon" id="demo1-icon">+</span>
-    </div>
-    <div class="demo-content" id="demo1-content">
-      <img src="https://picsum.photos/id/1015/900/280" alt="فروشگاه" />
-      <p>یک فروشگاه آنلاین کامل با امکانات سبد خرید، پرداخت و مدیریت سفارشات.</p>
-    </div>
-  </div>
-</section>
+  <script>
+    let messages = JSON.parse(localStorage.getItem('messages')) || [];
 
-<section id="contact">
-  <h2>تماس با من</h2>
-  <form id="contactForm" novalidate>
-    <label for="name">نام کامل:</label>
-    <input type="text" id="name" required minlength="3" placeholder="مثلاً: علی رضایی" />
-    <label for="email">ایمیل:</label>
-    <input type="email" id="email" required placeholder="example@email.com" />
-    <label for="message">پیام شما:</label>
-    <textarea id="message" rows="5" required minlength="10" placeholder="پیام خود را بنویسید..."></textarea>
-    <div id="formMessage" class="form-message"></div>
-    <button type="submit">ارسال پیام</button>
-  </form>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const message = this.message.value.trim();
+      const formMessage = document.getElementById('formMessage');
+      formMessage.style.display = 'none';
 
-  <div id="passwordSection">
-    <label for="passwordInput">رمز عبور برای مشاهده پیام‌ها:</label>
-    <input type="password" id="passwordInput" placeholder="رمز عبور را وارد کنید" />
-    <button id="checkPasswordBtn">ورود</button>
-    <div id="passwordMessage" class="form-message error"></div>
-  </div>
+      if (name.length < 3) {
+        showMessage('نام باید حداقل ۳ کاراکتر باشد.', false);
+        return;
+      }
+      if (!validateEmail(email)) {
+        showMessage('ایمیل معتبر نیست.', false);
+        return;
+      }
+      if (message.length < 10) {
+        showMessage('پیام باید حداقل ۱۰ کاراکتر باشد.', false);
+        return;
+      }
 
-  <div id="messagesList">
-    <h3>پیام‌های ارسال شده:</h3>
-    <div id="messagesContainer"></div>
-  </div>
-</section>
-
-<footer>© ۱۴۰۴ مهدی | تمامی حقوق محفوظ است</footer>
-
-<script>
-  function toggleDemo(id) {
-    const content = document.getElementById(id + '-content');
-    const icon = document.getElementById(id + '-icon');
-    const isOpen = content.classList.toggle('open');
-    icon.textContent = isOpen ? '×' : '+';
-    icon.classList.toggle('open', isOpen);
-  }
-
-  let messages = JSON.parse(localStorage.getItem('messages')) || [];
-
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const name = this.name.value.trim();
-    const email = this.email.value.trim();
-    const message = this.message.value.trim();
-    const formMessage = document.getElementById('formMessage');
-    formMessage.style.display = 'none';
-
-    if(name.length < 3) return showMessage('نام باید حداقل ۳ کاراکتر باشد.', false);
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showMessage('ایمیل معتبر نیست.', false);
-    if(message.length < 10) return showMessage('پیام باید حداقل ۱۰ کاراکتر باشد.', false);
-
-    const msg = {name, email, message, time: new Date().toLocaleString()};
-    messages.push(msg);
-    localStorage.setItem('messages', JSON.stringify(messages));
-    showMessage('پیام با موفقیت ارسال شد.', true);
-    this.reset();
-  });
-
-  function showMessage(text, success) {
-    const m = document.getElementById('formMessage');
-    m.textContent = text;
-    m.className = success ? 'form-message success' : 'form-message error';
-    m.style.display = 'block';
-  }
-
-  document.getElementById('checkPasswordBtn').addEventListener('click', function() {
-    const entered = document.getElementById('passwordInput').value.trim();
-    if(entered === 'M89P90') {
-      document.getElementById('passwordMessage').style.display = 'none';
-      document.getElementById('messagesList').style.display = 'block';
-      renderMessages();
-    } else {
-      document.getElementById('passwordMessage').textContent = 'رمز عبور اشتباه است.';
-      document.getElementById('passwordMessage').style.display = 'block';
-      document.getElementById('messagesList').style.display = 'none';
-    }
-  });
-
-  function renderMessages() {
-    const container = document.getElementById('messagesContainer');
-    container.innerHTML = '';
-    if(messages.length === 0) {
-      container.innerHTML = '<p>هیچ پیامی ارسال نشده است.</p>';
-      return;
-    }
-    messages.forEach(m => {
-      const div = document.createElement('div');
-      div.className = 'message-item';
-      div.textContent = `نام: ${m.name}\nایمیل: ${m.email}\nزمان: ${m.time}\n\nپیام:\n${m.message}`;
-      container.appendChild(div);
+      const newMessage = {
+        name,
+        email,
+        message,
+        time: new Date().toLocaleString()
+      };
+      messages.push(newMessage);
+      localStorage.setItem('messages', JSON.stringify(messages));
+      showMessage('پیام با موفقیت ارسال شد.', true);
+      this.reset();
     });
-  }
-</script>
 
+    function showMessage(text, success) {
+      const formMessage = document.getElementById('formMessage');
+      formMessage.textContent = text;
+      formMessage.className = 'form-message ' + (success ? 'success' : 'error');
+      formMessage.style.display = 'block';
+    }
+
+    function validateEmail(email) {
+      const re = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      return re.test(email);
+    }
+
+    const correctPassword = 'M89P90';
+    const passwordInput = document.getElementById('passwordInput');
+    const checkPasswordBtn = document.getElementById('checkPasswordBtn');
+    const passwordMessage = document.getElementById('passwordMessage');
+    const messagesList = document.getElementById('messagesList');
+    const messagesContainer = document.getElementById('messagesContainer');
+
+    checkPasswordBtn.addEventListener('click', function() {
+      const entered = passwordInput.value.trim();
+      if (entered === correctPassword) {
+        passwordMessage.style.display = 'none';
+        messagesList.style.display = 'block';
+        renderMessages();
+      } else {
+        passwordMessage.textContent = 'رمز عبور اشتباه است.';
+        passwordMessage.style.display = 'block';
+        messagesList.style.display = 'none';
+      }
+    });
+
+    function renderMessages() {
+      if (messages.length === 0) {
+        messagesContainer.innerHTML = '<p>هیچ پیامی ارسال نشده است.</p>';
+        return;
+      }
+      messagesContainer.innerHTML = '';
+      messages.forEach(msg => {
+        const div = document.createElement('div');
+        div.className = 'message-item';
+        div.textContent = `نام: ${msg.name}\\nایمیل: ${msg.email}\\nزمان: ${msg.time}\\n\\nپیام:\\n${msg.message}`;
+        messagesContainer.appendChild(div);
+      });
+    }
+  </script>
 </body>
 </html>
