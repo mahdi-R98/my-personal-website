@@ -3,625 +3,405 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>سایت شخصی مهدی امینی</title>
-<!-- فونت زیبای ایران سنس (از گوگل فونت فارسی) -->
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
-<!-- آیکون فونت -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<title>سایت شخصی پیام‌رسان</title>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/847/847969.png" />
 <style>
-  /* Reset */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Vazir', sans-serif;
-  }
-  html, body {
-    height: 100%;
-    background: var(--bg);
-    color: var(--text);
-    transition: background-color 0.4s ease, color 0.4s ease;
-  }
+  @import url('https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/font-face.css');
 
   :root {
-    --bg-light: #f9f9f9;
-    --text-light: #333;
-    --bg-dark: #121212;
-    --text-dark: #eee;
-
-    --primary: #007bff;
-    --primary-dark: #0056b3;
+    --color-light-bg: #f9f9f9;
+    --color-light-text: #222;
+    --color-light-card: #fff;
+    --color-dark-bg: #121212;
+    --color-dark-text: #eee;
+    --color-dark-card: #1f1f1f;
+    --primary-color: #007bff;
+    --danger-color: #dc3545;
   }
 
-  body.light {
-    --bg: var(--bg-light);
-    --text: var(--text-light);
-    --btn-bg: var(--primary);
-    --btn-hover: var(--primary-dark);
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    margin: 0; padding: 0;
+    background-color: var(--color-light-bg);
+    color: var(--color-light-text);
+    transition: background-color 0.3s, color 0.3s;
   }
+
   body.dark {
-    --bg: var(--bg-dark);
-    --text: var(--text-dark);
-    --btn-bg: #1a73e8;
-    --btn-hover: #1669c1;
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
   }
 
-  /* Container */
-  #app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  .container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 15px;
   }
 
-  /* لوگو */
   header {
-    padding: 20px;
-    background: var(--btn-bg);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  }
-  header img.logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid white;
-  }
-  header h1 {
-    font-weight: 700;
-    font-size: 1.8rem;
-    user-select: none;
-  }
-
-  /* پس‌زمینه */
-  main {
-    flex-grow: 1;
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  main.dark {
-    background: url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-  }
-
-  /* کارت معرفی */
-  .profile-card {
-    background: var(--bg);
-    border-radius: 16px;
-    padding: 30px 40px;
-    max-width: 520px;
-    width: 100%;
-    box-shadow: 0 12px 30px rgb(0 0 0 / 0.15);
-    color: var(--text);
-    backdrop-filter: blur(12px);
     text-align: center;
-  }
-  .profile-card img.avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid var(--btn-bg);
-    object-fit: cover;
-    margin-bottom: 15px;
-  }
-  .profile-card h2 {
-    font-size: 2rem;
-    margin-bottom: 8px;
-  }
-  .profile-card p.bio {
-    font-size: 1.1rem;
-    line-height: 1.5;
     margin-bottom: 25px;
   }
-  .profile-card a.social {
-    margin: 0 10px;
-    color: var(--btn-bg);
-    font-size: 1.6rem;
-    transition: color 0.3s;
-  }
-  .profile-card a.social:hover {
-    color: var(--btn-hover);
+
+  header img {
+    width: 100px;
+    margin-bottom: 10px;
   }
 
-  /* فرم تماس */
-  form.contact-form {
-    background: var(--bg);
-    margin-top: 30px;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgb(0 0 0 / 0.12);
-    max-width: 520px;
-    width: 100%;
+  h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--primary-color);
   }
-  form.contact-form label {
+
+  .password-screen, .main-app {
+    background-color: var(--color-light-card);
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 420px;
+    margin: 50px auto;
+  }
+
+  body.dark .password-screen,
+  body.dark .main-app {
+    background-color: var(--color-dark-card);
+    box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+  }
+
+  label {
     display: block;
     font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--text);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
   }
-  form.contact-form input,
-  form.contact-form textarea {
+
+  input[type="password"] {
     width: 100%;
-    padding: 10px 15px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
+    padding: 12px 15px;
     font-size: 1rem;
-    margin-bottom: 18px;
-    transition: border-color 0.3s;
-    background: transparent;
-    color: var(--text);
-    resize: vertical;
-  }
-  form.contact-form input:focus,
-  form.contact-form textarea:focus {
-    border-color: var(--btn-bg);
+    border-radius: 10px;
+    border: 1.8px solid #bbb;
     outline: none;
-  }
-  form.contact-form button {
-    background: var(--btn-bg);
-    color: white;
-    border: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 12px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-  }
-  form.contact-form button:hover {
-    background: var(--btn-hover);
-  }
-
-  /* پیام‌های ارسالی */
-  #messages-section {
-    margin-top: 40px;
-    max-width: 520px;
-    width: 100%;
-    background: var(--bg);
-    border-radius: 12px;
-    padding: 20px 25px;
-    box-shadow: 0 10px 20px rgb(0 0 0 / 0.15);
-    overflow-y: auto;
-    max-height: 320px;
-  }
-  #messages-section h3 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    color: var(--btn-bg);
-  }
-  .message {
-    border-bottom: 1px solid #ddd;
-    padding: 12px 0;
-    word-break: break-word;
-  }
-  .message:last-child {
-    border-bottom: none;
-  }
-  .message .meta {
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-    color: var(--btn-bg);
-  }
-  .message .text {
-    font-size: 1rem;
-    color: var(--text);
-  }
-
-  /* دکمه تعویض تم */
-  #toggle-theme {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    background: var(--btn-bg);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    width: 48px;
-    height: 48px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgb(0 0 0 / 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s;
-    z-index: 1000;
-  }
-  #toggle-theme:hover {
-    background: var(--btn-hover);
-  }
-
-  /* صفحه ورود (ورود سایت) */
-  #login-page {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #login-page .login-box {
-    background: rgba(255 255 255 / 0.95);
-    padding: 40px 35px;
-    border-radius: 18px;
-    width: 320px;
-    box-shadow: 0 8px 25px rgb(0 0 0 / 0.15);
-    text-align: center;
-  }
-  #login-page .login-box h2 {
-    margin-bottom: 25px;
-    font-weight: 700;
-    color: #222;
-  }
-  #login-page .login-box input {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    border: 2px solid #ccc;
-    margin-bottom: 22px;
     transition: border-color 0.3s;
   }
-  #login-page .login-box input:focus {
-    border-color: var(--primary);
-    outline: none;
-  }
-  #login-page .login-box button {
-    width: 100%;
-    padding: 13px 0;
-    background: var(--primary);
-    border: none;
-    color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  #login-page .login-box button:hover {
-    background: var(--primary-dark);
-  }
-  #login-page .login-box .error {
-    color: #d32f2f;
-    margin-bottom: 15px;
-    font-weight: 600;
+
+  input[type="password"]:focus {
+    border-color: var(--primary-color);
   }
 
-  /* صفحه نمایش پیام‌ها - رمز دوم */
-  #msg-password-page {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #msg-password-page .login-box {
-    background: rgba(255 255 255 / 0.95);
-    padding: 40px 35px;
-    border-radius: 18px;
-    width: 320px;
-    box-shadow: 0 8px 25px rgb(0 0 0 / 0.15);
-    text-align: center;
-  }
-  #msg-password-page .login-box h2 {
-    margin-bottom: 25px;
-    font-weight: 700;
-    color: #222;
-  }
-  #msg-password-page .login-box input {
-    width: 100%;
-    padding: 13px 15px;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    border: 2px solid #ccc;
-    margin-bottom: 22px;
-    transition: border-color 0.3s;
-  }
-  #msg-password-page .login-box input:focus {
-    border-color: var(--primary);
-    outline: none;
-  }
-  #msg-password-page .login-box button {
-    width: 100%;
-    padding: 13px 0;
-    background: var(--primary);
-    border: none;
-    color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  #msg-password-page .login-box button:hover {
-    background: var(--primary-dark);
-  }
-  #msg-password-page .login-box .error {
-    color: #d32f2f;
-    margin-bottom: 15px;
-    font-weight: 600;
-  }
-
-  /* پیام خالی */
-  #no-messages {
-    text-align: center;
-    color: var(--btn-bg);
+  button {
     margin-top: 20px;
-    font-weight: 600;
-    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
   }
 
-  /* ریسپانسیو */
-  @media (max-width: 600px) {
-    main {
-      padding: 30px 15px;
-    }
-    .profile-card, form.contact-form, #messages-section {
-      max-width: 100%;
-      padding: 20px;
-    }
-    header h1 {
-      font-size: 1.4rem;
-    }
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .toggle-theme {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+  }
+
+  .toggle-theme:hover {
+    background-color: #0056b3;
+  }
+
+  .message-form textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: 1.6px solid #bbb;
+    resize: vertical;
+    font-family: 'Vazirmatn', sans-serif;
+  }
+
+  .message-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  .messages-list {
+    margin-top: 25px;
+    max-height: 400px;
+    overflow-y: auto;
+    border-top: 1.5px solid #ddd;
+    padding-top: 15px;
+  }
+
+  body.dark .messages-list {
+    border-color: #444;
+  }
+
+  .message-item {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px 20px 20px 5px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 3px 7px rgba(0,123,255,0.5);
+  }
+
+  body.dark .message-item {
+    background-color: #0056b3;
+    box-shadow: 0 3px 7px rgba(0,86,179,0.8);
+  }
+
+  .message-item::after {
+    content: attr(data-time);
+    position: absolute;
+    bottom: -18px;
+    right: 15px;
+    font-size: 0.75rem;
+    color: #ddd;
+  }
+
+  body.dark .message-item::after {
+    color: #aaa;
+  }
+
+  .view-messages-btn {
+    margin-top: 15px;
+    background-color: var(--danger-color);
+    border: none;
+    color: white;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 10px 18px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .view-messages-btn:hover {
+    background-color: #a71d2a;
+  }
+
+  /* Scrollbar */
+  .messages-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  .messages-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+  }
+
+  body.dark .messages-list::-webkit-scrollbar-thumb {
+    background-color: #3399ff;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #888;
+  }
+
+  body.dark footer {
+    color: #666;
   }
 </style>
 </head>
-<body class="light">
+<body>
 
-<!-- دکمه تعویض تم -->
-<button id="toggle-theme" aria-label="تعویض تم">
-  <i class="fa-regular fa-moon"></i>
-</button>
+<button class="toggle-theme" title="تغییر تم">🌙</button>
 
-<!-- صفحه ورود اولیه -->
-<div id="login-page" class="hidden">
-  <div class="login-box">
-    <h2>ورود به سایت</h2>
-    <input type="password" id="site-password" placeholder="رمز عبور را وارد کنید" autocomplete="off" />
-    <div class="error" id="login-error"></div>
-    <button id="login-btn">ورود</button>
+<header>
+  <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="لوگو سایت" />
+  <h1>سایت شخصی پیام‌رسان</h1>
+</header>
+
+<div id="login-screen" class="password-screen">
+  <label for="site-password-input">رمز ورود به سایت را وارد کنید:</label>
+  <input type="password" id="site-password-input" autocomplete="off" />
+  <button id="site-password-btn">ورود</button>
+  <p id="login-error" style="color:#dc3545; margin-top:10px; display:none;">رمز اشتباه است!</p>
+</div>
+
+<div id="app" class="main-app" style="display:none;">
+
+  <form id="message-form" class="message-form">
+    <label for="message-textarea">پیام خود را اینجا بنویسید:</label>
+    <textarea id="message-textarea" maxlength="500" placeholder="پیام خود را وارد کنید..."></textarea>
+    <button type="submit">ارسال پیام</button>
+  </form>
+
+  <button class="view-messages-btn" id="show-messages-btn">نمایش پیام‌ها (رمز لازم)</button>
+
+  <div id="messages-password-screen" class="password-screen" style="display:none; max-width: 420px; margin: 20px auto 0 auto;">
+    <label for="messages-password-input">رمز مشاهده پیام‌ها را وارد کنید:</label>
+    <input type="password" id="messages-password-input" autocomplete="off" />
+    <button id="messages-password-btn">مشاهده</button>
+    <p id="messages-error" style="color:#dc3545; margin-top:10px; display:none;">رمز اشتباه است!</p>
   </div>
+
+  <div id="messages-list" class="messages-list" style="display:none;"></div>
 </div>
 
-<!-- صفحه رمز پیام‌ها -->
-<div id="msg-password-page" class="hidden">
-  <div class="login-box">
-    <h2>رمز عبور مشاهده پیام‌ها</h2>
-    <input type="password" id="msg-password" placeholder="رمز پیام‌ها" autocomplete="off" />
-    <div class="error" id="msg-error"></div>
-    <button id="msg-login-btn">نمایش پیام‌ها</button>
-  </div>
-</div>
-
-<!-- سایت اصلی -->
-<div id="app" class="hidden">
-  <header>
-    <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="لوگو" class="logo" />
-    <h1>مهدی امینی</h1>
-  </header>
-  <main>
-    <div>
-      <div class="profile-card">
-        <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="عکس مهدی امینی" class="avatar" />
-        <h2>سلام! من مهدی امینی هستم</h2>
-        <p class="bio">
-          برنامه‌نویس، توسعه‌دهنده وب و عاشق تکنولوژی.  
-          اینجا سایت شخصی من است.  
-          می‌توانید از فرم زیر با من در تماس باشید.
-        </p>
-        <div>
-          <a href="https://github.com/mediamini" target="_blank" rel="noopener" class="social" title="گیت‌هاب"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/mediamini" target="_blank" rel="noopener" class="social" title="لینکدین"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:mediamini@example.com" class="social" title="ایمیل"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-
-        <form class="contact-form" id="contact-form" autocomplete="off">
-          <label for="name">نام شما</label>
-          <input type="text" id="name" name="name" required placeholder="نام خود را وارد کنید" />
-          <label for="email">ایمیل</label>
-          <input type="email" id="email" name="email" required placeholder="ایمیل شما" />
-          <label for="message">پیام شما</label>
-          <textarea id="message" name="message" rows="5" required placeholder="پیام خود را بنویسید"></textarea>
-          <button type="submit">ارسال پیام</button>
-        </form>
-
-        <button id="show-messages-btn" style="margin-top: 20px; background: var(--btn-bg); color: white; border:none; padding: 10px 18px; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; transition: background-color 0.3s;">
-          مشاهده پیام‌ها
-        </button>
-
-        <div id="messages-section" class="hidden">
-          <h3>پیام‌های شما</h3>
-          <div id="messages-list"></div>
-          <button id="close-messages-btn" style="margin-top: 15px; background: var(--btn-bg); color: white; border:none; padding: 10px 18px; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; transition: background-color 0.3s;">بستن پیام‌ها</button>
-        </div>
-
-      </div>
-    </div>
-  </main>
-</div>
+<footer>
+  © 2025 مهدی رسولی
+</footer>
 
 <script>
-  // رمزها (در این نسخه ساده در کد جاوااسکریپت ذخیره شده)
-  const SITE_PASSWORD = 'admin';
-  const MSG_PASSWORD = 'M89P90';
+  const SITE_PASSWORD = "admin";  // رمز ورود به سایت
+  const MESSAGES_PASSWORD = "M89P90"; // رمز مشاهده پیام‌ها
 
-  // انتخاب عناصر
-  const body = document.body;
-  const loginPage = document.getElementById('login-page');
+  const loginScreen = document.getElementById('login-screen');
   const app = document.getElementById('app');
-  const loginBtn = document.getElementById('login-btn');
-  const sitePasswordInput = document.getElementById('site-password');
+  const sitePassInput = document.getElementById('site-password-input');
+  const sitePassBtn = document.getElementById('site-password-btn');
   const loginError = document.getElementById('login-error');
 
-  const msgPasswordPage = document.getElementById('msg-password-page');
-  const msgPasswordInput = document.getElementById('msg-password');
-  const msgLoginBtn = document.getElementById('msg-login-btn');
-  const msgError = document.getElementById('msg-error');
-
-  const contactForm = document.getElementById('contact-form');
+  const messageForm = document.getElementById('message-form');
+  const messageTextarea = document.getElementById('message-textarea');
   const showMessagesBtn = document.getElementById('show-messages-btn');
-  const messagesSection = document.getElementById('messages-section');
+
+  const messagesPasswordScreen = document.getElementById('messages-password-screen');
+  const messagesPasswordInput = document.getElementById('messages-password-input');
+  const messagesPasswordBtn = document.getElementById('messages-password-btn');
+  const messagesError = document.getElementById('messages-error');
+
   const messagesList = document.getElementById('messages-list');
-  const closeMessagesBtn = document.getElementById('close-messages-btn');
 
-  const toggleThemeBtn = document.getElementById('toggle-theme');
+  // ذخیره پیام‌ها در localStorage
+  function loadMessages() {
+    const data = localStorage.getItem('messages');
+    if (!data) return [];
+    try {
+      return JSON.parse(data);
+    } catch {
+      return [];
+    }
+  }
 
-  // ذخیره پیام‌ها در LocalStorage (بدون سرور)
-  function saveMessage(name, email, message) {
-    let messages = JSON.parse(localStorage.getItem('messages') || '[]');
-    messages.push({name, email, message, date: new Date().toLocaleString()});
+  function saveMessages(messages) {
     localStorage.setItem('messages', JSON.stringify(messages));
   }
 
-  // بارگذاری پیام‌ها
-  function loadMessages() {
+  function formatDateTime(date) {
+    return date.toLocaleString('fa-IR', {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+
+  // نمایش پیام‌ها
+  function renderMessages() {
+    const messages = loadMessages();
     messagesList.innerHTML = '';
-    let messages = JSON.parse(localStorage.getItem('messages') || '[]');
     if (messages.length === 0) {
-      messagesList.innerHTML = '<div id="no-messages">هیچ پیامی وجود ندارد.</div>';
+      messagesList.innerHTML = '<p style="text-align:center; color:#666;">هیچ پیامی وجود ندارد.</p>';
       return;
     }
     messages.forEach(msg => {
       const div = document.createElement('div');
-      div.className = 'message';
-      div.innerHTML = `<div class="meta">${msg.name} - ${msg.date}</div><div class="text">${msg.message}</div>`;
+      div.className = 'message-item';
+      div.textContent = msg.text;
+      div.setAttribute('data-time', msg.time);
       messagesList.appendChild(div);
     });
   }
 
-  // نمایش یا مخفی کردن صفحات
-  function showLogin() {
-    loginPage.classList.remove('hidden');
-    app.classList.add('hidden');
-    msgPasswordPage.classList.add('hidden');
-  }
-  function showApp() {
-    loginPage.classList.add('hidden');
-    app.classList.remove('hidden');
-    msgPasswordPage.classList.add('hidden');
-    updateBackground();
-  }
-  function showMsgPassword() {
-    loginPage.classList.add('hidden');
-    app.classList.add('hidden');
-    msgPasswordPage.classList.remove('hidden');
-  }
-
-  // بررسی ورود اولیه
-  function checkSiteLogin() {
-    let loggedIn = sessionStorage.getItem('siteLoggedIn');
-    if (loggedIn === 'true') {
-      showApp();
+  // ورود به سایت
+  sitePassBtn.addEventListener('click', () => {
+    if(sitePassInput.value === SITE_PASSWORD) {
+      loginScreen.style.display = 'none';
+      app.style.display = 'block';
+      sitePassInput.value = '';
+      loginError.style.display = 'none';
     } else {
-      showLogin();
-    }
-  }
-
-  // بررسی ورود به صفحه پیام‌ها
-  function checkMsgLogin() {
-    let loggedIn = sessionStorage.getItem('msgLoggedIn');
-    if (loggedIn === 'true') {
-      showMessages();
-    } else {
-      showMsgPassword();
-    }
-  }
-
-  // ورود اولیه سایت
-  loginBtn.addEventListener('click', () => {
-    const pass = sitePasswordInput.value.trim();
-    if (pass === SITE_PASSWORD) {
-      sessionStorage.setItem('siteLoggedIn', 'true');
-      sitePasswordInput.value = '';
-      loginError.textContent = '';
-      showApp();
-    } else {
-      loginError.textContent = 'رمز عبور اشتباه است!';
+      loginError.style.display = 'block';
     }
   });
 
-  sitePasswordInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') loginBtn.click();
-  });
-
-  // ورود صفحه پیام‌ها
-  msgLoginBtn.addEventListener('click', () => {
-    const pass = msgPasswordInput.value.trim();
-    if (pass === MSG_PASSWORD) {
-      sessionStorage.setItem('msgLoggedIn', 'true');
-      msgPasswordInput.value = '';
-      msgError.textContent = '';
-      loadMessages();
-      showMessages();
-    } else {
-      msgError.textContent = 'رمز عبور پیام‌ها اشتباه است!';
+  sitePassInput.addEventListener('keydown', e => {
+    if(e.key === 'Enter') {
+      sitePassBtn.click();
     }
   });
 
-  msgPasswordInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') msgLoginBtn.click();
-  });
-
-  // ارسال پیام از فرم
-  contactForm.addEventListener('submit', e => {
+  // ارسال پیام
+  messageForm.addEventListener('submit', e => {
     e.preventDefault();
-    const name = contactForm.name.value.trim();
-    const email = contactForm.email.value.trim();
-    const message = contactForm.message.value.trim();
-
-    if (!name || !email || !message) return;
-
-    saveMessage(name, email, message);
-    alert('پیام شما با موفقیت ارسال شد!');
-    contactForm.reset();
+    const text = messageTextarea.value.trim();
+    if(text.length === 0) return alert('لطفاً پیام را وارد کنید.');
+    const messages = loadMessages();
+    messages.push({text, time: formatDateTime(new Date())});
+    saveMessages(messages);
+    messageTextarea.value = '';
+    alert('پیام با موفقیت ارسال شد.');
   });
 
-  // دکمه مشاهده پیام‌ها
+  // نمایش صفحه رمز پیام‌ها
   showMessagesBtn.addEventListener('click', () => {
-    checkMsgLogin();
+    messagesPasswordScreen.style.display = 'block';
+    messagesList.style.display = 'none';
+    messagesPasswordInput.value = '';
+    messagesError.style.display = 'none';
   });
 
-  // نمایش پیام‌ها
-  function showMessages() {
-    messagesSection.classList.remove('hidden');
-  }
-
-  // بستن نمایش پیام‌ها
-  closeMessagesBtn.addEventListener('click', () => {
-    messagesSection.classList.add('hidden');
-    sessionStorage.removeItem('msgLoggedIn');
-  });
-
-  // تعویض تم
-  function updateBackground() {
-    if (body.classList.contains('dark')) {
-      body.classList.remove('light');
-      body.classList.add('dark');
-      main.classList.add('dark');
-      toggleThemeBtn.innerHTML = '<i class="fa-regular fa-sun"></i>';
+  // بررسی رمز پیام‌ها
+  messagesPasswordBtn.addEventListener('click', () => {
+    if(messagesPasswordInput.value === MESSAGES_PASSWORD) {
+      messagesPasswordScreen.style.display = 'none';
+      messagesList.style.display = 'block';
+      renderMessages();
     } else {
-      body.classList.remove('dark');
-      body.classList.add('light');
-      main.classList.remove('dark');
-      toggleThemeBtn.innerHTML = '<i class="fa-regular fa-moon"></i>';
+      messagesError.style.display = 'block';
     }
-  }
-
-  toggleThemeBtn.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    body.classList.toggle('light');
-    updateBackground();
   });
 
-  // صفحه اصلی و ورودی
-  const main = document.querySelector('main');
+  messagesPasswordInput.addEventListener('keydown', e => {
+    if(e.key === 'Enter') {
+      messagesPasswordBtn.click();
+    }
+  });
 
-  // شروع برنامه
-  checkSiteLogin();
+  // تغییر تم
+  const toggleThemeBtn = document.querySelector('.toggle-theme');
+  toggleThemeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    if(document.body.classList.contains('dark')) {
+      toggleThemeBtn.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleThemeBtn.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
+  // بارگذاری تم ذخیره شده
+  window.addEventListener('load', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'dark') {
+      document.body.classList.add('dark');
+      toggleThemeBtn.textContent = '☀️';
+    } else {
+      toggleThemeBtn.textContent = '🌙';
+    }
+  });
 </script>
 
 </body>
