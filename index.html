@@ -3,333 +3,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>پروفایل مهدی رسولی - نمونه پروژه‌ها و تماس</title>
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v31.1.0/dist/font-face.css" rel="stylesheet" />
+  <title>فرم تماس با رمز عبور دو مرحله‌ای</title>
   <style>
+    @import url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css');
     :root {
-      --color-primary: #2c3e50;
-      --color-secondary: #2980b9;
-      --color-accent: #e67e22;
-      --bg-light: #fdfdfd;
-      --bg-dark: #222b36;
-      --text-light: #f9f9f9;
-      --text-dark: #333;
-      --success-bg: #d4edda;
-      --success-text: #155724;
-      --error-bg: #f8d7da;
-      --error-text: #721c24;
-      --btn-bg: #2980b9;
-      --btn-hover-bg: #1f6391;
-      --modal-bg: rgba(0,0,0,0.7);
-    }
-    /* Reset */
-    * {
-      box-sizing: border-box;
+      --color-primary: #222;
+      --color-secondary: #555;
+      --btn-bg: #0077ff;
+      --btn-hover-bg: #005bbb;
+      --error-text: #a00;
+      --error-bg: #fdd;
+      --bg-light: #f8f9fa;
+      --modal-bg: rgba(0,0,0,0.6);
+      --text-light: #eaeaea;
     }
     body {
       font-family: 'Vazir', Tahoma, sans-serif;
-      margin: 0;
       background: var(--bg-light);
       color: var(--color-primary);
-      transition: background 0.3s ease, color 0.3s ease;
+      margin: 0;
+      padding: 0 10px 40px;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     body.dark {
-      background: var(--bg-dark);
+      background: #121822;
       color: var(--text-light);
     }
-
     header {
       text-align: center;
-      padding: 30px 20px 10px;
-      user-select: none;
-      background: var(--color-primary);
-      color: var(--text-light);
-      box-shadow: 0 3px 10px rgb(0 0 0 / 0.15);
-      position: relative;
-      z-index: 10;
+      margin: 30px auto 40px;
     }
     header h1 {
-      margin: 0 0 6px;
       font-size: 3rem;
+      margin: 0;
       font-weight: 900;
-      letter-spacing: 1px;
     }
     header p {
-      margin: 0;
-      font-weight: 500;
-      font-size: 1.25rem;
-      opacity: 0.85;
+      font-size: 1.2rem;
+      color: var(--color-secondary);
+      margin-top: 6px;
     }
 
     main {
-      flex: 1;
-      max-width: 980px;
-      margin: 25px auto 60px;
-      padding: 0 20px;
+      max-width: 780px;
+      margin: 0 auto;
     }
-
-    section {
-      margin-bottom: 40px;
-      padding: 22px 18px;
+    form {
+      background: white;
       border-radius: 14px;
-      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
-      background: var(--bg-light);
-      transition: background 0.3s ease;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.15);
+      padding: 22px 24px 30px;
+      transition: background-color 0.3s ease;
     }
-    body.dark section {
-      background: #2f3a49;
-      box-shadow: 0 5px 15px rgb(0 0 0 / 0.4);
+    body.dark form {
+      background: #2c374c;
     }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 18px;
-      font-weight: 700;
-      border-bottom: 2px solid var(--color-accent);
-      padding-bottom: 8px;
-      user-select: none;
-    }
-
-    /* توانایی‌ها */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 18px;
-    }
-    .skill {
-      background: var(--color-secondary);
-      color: white;
-      width: 120px;
-      padding: 16px 12px;
-      border-radius: 16px;
-      box-shadow: 0 5px 12px rgb(0 0 0 / 0.15);
-      text-align: center;
-      cursor: default;
-      user-select: none;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .skill img {
-      width: 56px;
-      height: 56px;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.2));
-      pointer-events: none;
-      user-select: none;
-    }
-    .skill:hover,
-    .skill:focus-visible {
-      outline: none;
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgb(0 0 0 / 0.3);
-    }
-    .skill-name {
+    form label {
+      display: block;
+      margin-top: 18px;
       font-weight: 700;
       font-size: 1.1rem;
+      color: var(--color-primary);
     }
-
-    /* نمونه پروژه */
-    .demo {
-      border-radius: 14px;
-      background: var(--bg-light);
-      box-shadow: 0 3px 12px rgb(0 0 0 / 0.1);
-      margin-bottom: 20px;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
+    body.dark form label {
+      color: var(--text-light);
     }
-    body.dark .demo {
-      background: #36455b;
-      box-shadow: 0 4px 16px rgb(0 0 0 / 0.4);
-    }
-    .demo-header {
-      padding: 16px 20px;
-      font-weight: 700;
-      font-size: 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 14px;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .demo-header:hover,
-    .demo-header:focus-visible {
-      background: var(--color-accent);
-      color: white;
-      outline: none;
-    }
-    .toggle-icon {
-      font-weight: 900;
-      font-size: 1.8rem;
-      line-height: 1;
-      user-select: none;
-      transition: transform 0.3s ease;
-      width: 26px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .toggle-icon.open {
-      transform: rotate(180deg);
-    }
-    .demo-content {
-      padding: 0 20px 20px;
-      overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
-      max-height: 0;
-      opacity: 0;
-    }
-    .demo-content.open {
-      max-height: 500px; /* اندازه کافی برای محتوا */
-      opacity: 1;
-    }
-    .demo-content img {
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      user-select: none;
-    }
-    .demo-content p {
-      line-height: 1.5;
-      font-size: 1rem;
-      user-select: text;
-    }
-
-    /* فرم تماس */
-    #contactForm {
-      display: flex;
-      flex-direction: column;
-      max-width: 480px;
-      margin: auto;
-    }
-    #contactForm label {
-      margin: 14px 0 6px;
-      font-weight: 700;
-      user-select: none;
-    }
-    #contactForm input,
-    #contactForm textarea {
-      padding: 12px 14px;
+      padding: 14px 18px;
       font-size: 1rem;
       border-radius: 12px;
       border: 2px solid var(--color-secondary);
-      background: var(--bg-light);
-      color: var(--color-primary);
-      transition: background 0.3s ease, border-color 0.3s ease;
-      resize: vertical;
+      margin-top: 6px;
       font-family: 'Vazir', Tahoma, sans-serif;
+      color: var(--color-primary);
+      resize: vertical;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
-    body.dark #contactForm input,
-    body.dark #contactForm textarea {
-      background: #2f3a49;
-      color: var(--text-light);
+    body.dark form input[type="text"],
+    body.dark form input[type="email"],
+    body.dark form textarea {
+      background: #34415a;
       border-color: #5578aa;
+      color: var(--text-light);
     }
-    #contactForm input:focus,
-    #contactForm textarea:focus {
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form textarea:focus {
       outline: none;
-      background: #dbe9fc;
-      border-color: var(--color-accent);
+      border-color: var(--btn-bg);
+      background-color: #eaf4ff;
     }
-    body.dark #contactForm input:focus,
-    body.dark #contactForm textarea:focus {
-      background: #446496;
+    body.dark form input[type="text"]:focus,
+    body.dark form input[type="email"]:focus,
+    body.dark form textarea:focus {
+      background-color: #3f4c78;
+      border-color: #83aaff;
     }
-    #contactForm button {
-      margin-top: 24px;
+    form button[type="submit"] {
+      margin-top: 26px;
       background: var(--btn-bg);
       border: none;
       color: white;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 1.25rem;
       padding: 14px 30px;
-      border-radius: 24px;
+      border-radius: 28px;
       cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
+      width: 100%;
+      box-shadow: 0 6px 16px rgb(0 119 255 / 0.7);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
-    #contactForm button:hover,
-    #contactForm button:focus-visible {
+    form button[type="submit"]:hover,
+    form button[type="submit"]:focus-visible {
       background: var(--btn-hover-bg);
       outline: none;
-    }
-    #formStatus {
-      margin-top: 16px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      user-select: none;
-    }
-    .status-success {
-      background: var(--success-bg);
-      color: var(--success-text);
-    }
-    .status-error {
-      background: var(--error-bg);
-      color: var(--error-text);
+      box-shadow: 0 8px 24px rgb(0 91 187 / 0.9);
     }
 
-    /* لیست پیام‌ها */
+    #formStatus {
+      margin-top: 14px;
+      font-weight: 700;
+      font-size: 1rem;
+      min-height: 24px;
+    }
+    .status-error {
+      color: var(--error-text);
+    }
+    .status-success {
+      color: #006600;
+    }
+
     #messagesList {
-      margin-top: 30px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      background: var(--bg-light);
+      margin-top: 40px;
+      background: white;
       border-radius: 14px;
-      box-shadow: 0 4px 12px rgb(0 0 0 / 0.12);
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.15);
+      padding: 20px 22px;
+      max-height: 300px;
       overflow-y: auto;
-      max-height: 280px;
-      padding: 18px 14px;
       user-select: text;
-      font-size: 0.95rem;
-      line-height: 1.4;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     body.dark #messagesList {
       background: #2c374c;
-      box-shadow: 0 5px 15px rgb(0 0 0 / 0.4);
       color: var(--text-light);
     }
     #messagesList h3 {
-      margin: 0 0 14px;
-      font-weight: 700;
-      border-bottom: 2px solid var(--color-accent);
-      padding-bottom: 8px;
-      user-select: none;
+      margin-top: 0;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--color-primary);
     }
-    #messagesList .message {
-      border-bottom: 1px solid #ccc;
-      padding: 8px 6px;
+    body.dark #messagesList h3 {
+      color: #a6c8ff;
     }
-    body.dark #messagesList .message {
-      border-color: #5779b5;
+    .message {
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border-radius: 14px;
+      background: #f0f4ff;
+      box-shadow: 0 2px 8px rgb(0 71 255 / 0.15);
+      cursor: default;
+      transition: background-color 0.3s ease;
     }
-    #messagesList .message:last-child {
-      border-bottom: none;
+    body.dark .message {
+      background: #3d4b72;
+      box-shadow: 0 2px 8px rgb(101 129 255 / 0.3);
     }
-    #messagesList .msg-header {
-      font-weight: 700;
+    .message:hover,
+    .message:focus-visible {
+      background: #d0e1ff;
+      outline: none;
+    }
+    body.dark .message:hover,
+    body.dark .message:focus-visible {
+      background: #576caf;
+    }
+    .msg-header {
+      font-weight: 900;
       font-size: 0.9rem;
       color: var(--color-secondary);
     }
-    body.dark #messagesList .msg-header {
+    body.dark .msg-header {
       color: #a6c8ff;
     }
-    #messagesList .msg-content {
-      margin: 6px 0 0 0;
+    .msg-content {
+      margin-top: 6px;
       white-space: pre-wrap;
       color: var(--color-primary);
     }
-    body.dark #messagesList .msg-content {
+    body.dark .msg-content {
       color: var(--text-light);
     }
 
-    /* رمز عبور برای دیدن پیام‌ها */
+    /* مودال رمز عبور */
     #passwordModal {
       position: fixed;
       inset: 0;
@@ -349,6 +220,7 @@
       width: 90%;
       color: var(--color-primary);
       user-select: text;
+      text-align: center;
     }
     body.dark #passwordModalContent {
       background: #2c374c;
@@ -357,7 +229,7 @@
     #passwordModalContent h2 {
       margin: 0 0 20px;
       font-weight: 800;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       user-select: none;
     }
     #passwordModalContent input {
@@ -370,6 +242,7 @@
       font-family: 'Vazir', Tahoma, sans-serif;
       color: var(--color-primary);
       transition: background 0.3s ease, border-color 0.3s ease;
+      text-align: center;
     }
     body.dark #passwordModalContent input {
       background: #2f3a49;
@@ -381,13 +254,13 @@
       border: none;
       color: white;
       font-weight: 700;
-      font-size: 1.15rem;
-      padding: 12px 30px;
+      font-size: 1.1rem;
+      padding: 12px 0;
       border-radius: 24px;
       cursor: pointer;
       width: 100%;
-      user-select: none;
-      transition: background 0.3s ease;
+      box-shadow: 0 5px 18px rgb(0 119 255 / 0.7);
+      transition: background-color 0.3s ease;
     }
     #passwordModalContent button:hover,
     #passwordModalContent button:focus-visible {
@@ -396,321 +269,279 @@
     }
     #passwordError {
       color: var(--error-text);
-      background: var(--error-bg);
-      padding: 10px 14px;
-      border-radius: 12px;
       font-weight: 600;
-      text-align: center;
-      margin-top: 8px;
-      user-select: none;
-      display: none;
+      margin-bottom: 12px;
+      min-height: 22px;
     }
 
-    /* دکمه تغییر تم */
-    #themeToggle {
+    /* دکمه تم تیره و روشن */
+    #toggleThemeBtn {
       position: fixed;
-      top: 20px;
-      left: 20px;
+      bottom: 30px;
+      left: 30px;
       background: var(--btn-bg);
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
       border: none;
-      padding: 10px 18px;
-      border-radius: 28px;
-      font-size: 1.1rem;
-      color: white;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgb(0 0 0 / 0.25);
-      user-select: none;
-      transition: background-color 0.3s ease, transform 0.25s ease;
-      z-index: 10000;
+      box-shadow: 0 6px 20px rgb(0 119 255 / 0.8);
+      transition: background-color 0.3s ease;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
+      color: white;
+      font-size: 24px;
+      user-select: none;
+      z-index: 10000;
     }
-    #themeToggle:hover,
-    #themeToggle:focus-visible {
+    #toggleThemeBtn:hover {
       background: var(--btn-hover-bg);
-      outline: none;
-      transform: scale(1.1);
     }
-    #themeToggle svg {
-      width: 22px;
-      height: 22px;
+    #toggleThemeBtn svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.35s ease;
+    }
+    #toggleThemeBtn.dark svg {
+      transform: rotate(180deg);
+    }
+    /* انیمیشن تغییر آیکون */
+    #toggleThemeBtn svg path {
+      transition: fill 0.35s ease;
       fill: white;
     }
 
-    /* ریسپانسیو */
-    @media (max-width: 520px) {
-      .skills {
-        justify-content: center;
-      }
-      .skill {
-        width: 100px;
-        padding: 12px 10px;
-      }
-      main {
-        margin: 15px auto 50px;
-        padding: 0 14px;
-      }
-      header h1 {
-        font-size: 2.3rem;
-      }
-      section h2 {
-        font-size: 1.6rem;
-      }
-    }
   </style>
 </head>
 <body>
-  <button id="themeToggle" aria-label="تغییر تم">
-    <svg id="iconTheme" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 3.1c-4.9 0-8.9 4-8.9 8.9 0 4.9 4 8.9 8.9 8.9 4.9 0 8.9-4 8.9-8.9 0-4.9-4-8.9-8.9-8.9zm0 16c-3.3 0-6-2.7-6-6 0-3.3 2.7-6 6-6 1.4 0 2.8.5 3.8 1.4-1.3.6-2.5 1.8-3 3.3-.5 1.4-.4 2.9.4 4.3-.8-.1-1.5-.1-2.2-.1z"/>
-    </svg>
-    تیره / روشن
-  </button>
-
   <header>
-    <h1>مهدی رسولی</h1>
-    <p>نمونه پروژه‌ها و فرم تماس</p>
+    <h1>فرم تماس با رمز عبور دو مرحله‌ای</h1>
+    <p>ابتدا رمز عبور را وارد کنید تا بتوانید پیام‌ها را ارسال و مشاهده کنید.</p>
   </header>
-
   <main>
-    <section id="skillsSection" aria-label="توانایی‌ها">
-      <h2>توانایی‌ها</h2>
-      <div class="skills" role="list">
-        <div class="skill" role="listitem" tabindex="0">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="آیکون HTML" />
-          <div class="skill-name">HTML5</div>
-        </div>
-        <div class="skill" role="listitem" tabindex="0">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="آیکون CSS" />
-          <div class="skill-name">CSS3</div>
-        </div>
-        <div class="skill" role="listitem" tabindex="0">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="آیکون JavaScript" />
-          <div class="skill-name">JavaScript</div>
-        </div>
-        <div class="skill" role="listitem" tabindex="0">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968381.png" alt="آیکون PHP" />
-          <div class="skill-name">PHP</div>
-        </div>
-        <div class="skill" role="listitem" tabindex="0">
-          <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="آیکون MySQL" />
-          <div class="skill-name">MySQL</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="demosSection" aria-label="نمونه پروژه‌ها">
-      <h2>نمونه پروژه‌ها</h2>
+    <form id="contactForm" autocomplete="off" novalidate>
+      <label for="name">نام و نام خانوادگی:</label>
+      <input type="text" id="name" name="name" placeholder="نام شما" required />
       
-      <article class="demo" tabindex="0" aria-expanded="false" aria-controls="demo1Content" role="button">
-        <header class="demo-header">
-          <span>سیستم مدیریت کتابخانه</span>
-          <span class="toggle-icon">&#9660;</span>
-        </header>
-        <div id="demo1Content" class="demo-content" aria-hidden="true">
-          <img src="https://i.imgur.com/YZNG0CR.png" alt="تصویر سیستم مدیریت کتابخانه" />
-          <p>سیستم مدیریت کتابخانه با قابلیت افزودن کتاب، دانش‌آموز، امانت دادن و گزارش گیری با طراحی واکنش‌گرا و تم‌های روشن و تیره.</p>
-        </div>
-      </article>
+      <label for="email">ایمیل:</label>
+      <input type="email" id="email" name="email" placeholder="example@example.com" required />
+      
+      <label for="message">پیام شما:</label>
+      <textarea id="message" name="message" placeholder="پیام خود را اینجا بنویسید" rows="5" required></textarea>
+      
+      <button type="submit">ارسال پیام</button>
+      <div id="formStatus" aria-live="polite"></div>
+    </form>
 
-      <article class="demo" tabindex="0" aria-expanded="false" aria-controls="demo2Content" role="button">
-        <header class="demo-header">
-          <span>فرم تماس داینامیک</span>
-          <span class="toggle-icon">&#9660;</span>
-        </header>
-        <div id="demo2Content" class="demo-content" aria-hidden="true">
-          <img src="https://i.imgur.com/kTOgEjF.png" alt="تصویر فرم تماس داینامیک" />
-          <p>فرم تماس با قابلیت ذخیره پیام‌ها در حافظه محلی و نمایش پیام‌های دریافت شده با امکان مدیریت تم.</p>
-        </div>
-      </article>
-    </section>
-
-    <section id="contactSection" aria-label="فرم تماس">
-      <h2>تماس با من</h2>
-      <form id="contactForm" novalidate autocomplete="off" aria-describedby="formStatus">
-        <label for="nameInput">نام و نام خانوادگی</label>
-        <input type="text" id="nameInput" name="name" required placeholder="نام شما" aria-required="true" />
-
-        <label for="emailInput">ایمیل</label>
-        <input type="email" id="emailInput" name="email" required placeholder="example@mail.com" aria-required="true" />
-
-        <label for="messageInput">پیام شما</label>
-        <textarea id="messageInput" name="message" rows="5" required placeholder="پیام خود را وارد کنید" aria-required="true"></textarea>
-
-        <button type="submit" aria-label="ارسال پیام">ارسال پیام</button>
-        <div id="formStatus" role="alert" aria-live="polite"></div>
-      </form>
-
-      <div id="messagesList" aria-live="polite" aria-label="پیام‌های ارسال شده" hidden>
-        <h3>پیام‌های دریافت شده</h3>
-        <!-- پیام‌ها اینجا اضافه می‌شوند -->
-      </div>
+    <section id="messagesList" tabindex="0" aria-label="پیام‌های ارسالی">
+      <h3>پیام‌ها</h3>
+      <div id="messagesContainer" tabindex="0"></div>
     </section>
   </main>
 
   <!-- مودال رمز عبور -->
-  <div id="passwordModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div id="passwordModal" role="dialog" aria-modal="true" aria-labelledby="passwordModalTitle" aria-describedby="passwordModalDesc" hidden>
     <div id="passwordModalContent">
-      <h2 id="modalTitle">برای دیدن پیام‌ها رمز عبور را وارد کنید</h2>
-      <input type="password" id="passwordInput" placeholder="رمز عبور" aria-describedby="passwordError" autocomplete="off" />
-      <button id="passwordSubmit" aria-label="تایید رمز عبور">ورود</button>
-      <div id="passwordError" role="alert"></div>
+      <h2 id="passwordModalTitle">ورود رمز عبور</h2>
+      <p id="passwordModalDesc">برای ادامه لطفاً رمز عبور را وارد کنید.</p>
+      <input type="password" id="passwordInput" aria-label="رمز عبور" autocomplete="current-password" />
+      <div id="passwordError" role="alert" aria-live="assertive"></div>
+      <button id="passwordSubmitBtn">تایید</button>
     </div>
   </div>
 
+  <!-- دکمه تم تیره / روشن -->
+  <button id="toggleThemeBtn" aria-label="تغییر تم تیره و روشن" title="تغییر تم">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </svg>
+  </button>
+
   <script>
-    // تغییر تم (روشن/تیره)
-    const themeToggle = document.getElementById('themeToggle');
-    const iconTheme = document.getElementById('iconTheme');
-    function setTheme(dark) {
-      if (dark) {
-        document.body.classList.add('dark');
-        // آیکون خورشید (روشن)
-        iconTheme.innerHTML = '<path d="M12 3.1c-4.9 0-8.9 4-8.9 8.9 0 4.9 4 8.9 8.9 8.9 4.9 0 8.9-4 8.9-8.9 0-4.9-4-8.9-8.9-8.9zm0 16c-3.3 0-6-2.7-6-6 0-3.3 2.7-6 6-6 1.4 0 2.8.5 3.8 1.4-1.3.6-2.5 1.8-3 3.3-.5 1.4-.4 2.9.4 4.3-.8-.1-1.5-.1-2.2-.1z"/>';
-      } else {
-        document.body.classList.remove('dark');
-        // آیکون ماه (تاریک)
-        iconTheme.innerHTML = '<path d="M21.75 15.32a9.25 9.25 0 01-12.23-12.23 7.01 7.01 0 0012.23 12.23z"/>';
-      }
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    }
-    themeToggle.onclick = () => {
-      setTheme(!document.body.classList.contains('dark'));
-    };
-    // بارگذاری تم ذخیره شده
-    const savedTheme = localStorage.getItem('theme');
-    setTheme(savedTheme === 'dark');
+    const correctPassword = '12345'; // رمز عبور اصلی (می‌تونی تغییرش بدی)
+    let globalAccessGranted = false; // دسترسی کلی برای ارسال فرم
+    let messageAccessGranted = false; // دسترسی برای دیدن پیام‌ها
 
-    // باز و بسته کردن دموها
-    document.querySelectorAll('.demo').forEach(demo => {
-      const header = demo.querySelector('.demo-header');
-      const content = demo.querySelector('.demo-content');
-      const icon = demo.querySelector('.toggle-icon');
-
-      header.addEventListener('click', () => {
-        const isOpen = content.classList.toggle('open');
-        icon.classList.toggle('open', isOpen);
-        demo.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        content.setAttribute('aria-hidden', !isOpen);
-      });
-      // با کلید Enter یا Space باز/بسته شود
-      demo.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          header.click();
-        }
-      });
-    });
-
-    // مدیریت پیام‌ها
+    const passwordModal = document.getElementById('passwordModal');
+    const passwordInput = document.getElementById('passwordInput');
+    const passwordSubmitBtn = document.getElementById('passwordSubmitBtn');
+    const passwordError = document.getElementById('passwordError');
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const messagesList = document.getElementById('messagesList');
+    const messagesContainer = document.getElementById('messagesContainer');
+    const toggleThemeBtn = document.getElementById('toggleThemeBtn');
 
-    // پیام‌ها به صورت آرایه ذخیره می‌شوند
-    let messages = [];
-
-    // تابع نمایش پیام‌ها در لیست
-    function renderMessages() {
-      if (messages.length === 0) {
-        messagesList.hidden = true;
-        messagesList.innerHTML = '<h3>پیام‌های دریافت شده</h3><p>هیچ پیامی وجود ندارد.</p>';
-        return;
-      }
-      messagesList.hidden = false;
-      let html = '<h3>پیام‌های دریافت شده</h3>';
-      messages.forEach((msg, i) => {
-        html += `
-          <div class="message" tabindex="0" aria-label="پیام شماره ${i + 1}">
-            <div class="msg-header">از: ${msg.name} | ایمیل: ${msg.email}</div>
-            <div class="msg-content">${msg.message.replace(/\n/g, '<br>')}</div>
-          </div>`;
-      });
-      messagesList.innerHTML = html;
+    // نمایش مودال با پیغام خطا (اختیاری پیام)
+    function openPasswordModal(message = '') {
+      passwordError.textContent = message;
+      passwordInput.value = '';
+      passwordModal.hidden = false;
+      passwordInput.focus();
+    }
+    function closePasswordModal() {
+      passwordModal.hidden = true;
+      passwordError.textContent = '';
+      passwordInput.value = '';
     }
 
-    // ارسال فرم
+    // چک کردن رمز عبور در مودال و تعیین دسترسی
+    function verifyPassword(forMessages = false) {
+      const entered = passwordInput.value.trim();
+      if (entered === correctPassword) {
+        if (!globalAccessGranted) {
+          globalAccessGranted = true;
+          closePasswordModal();
+          enableForm();
+          formStatus.textContent = '';
+        } else if (forMessages) {
+          messageAccessGranted = true;
+          closePasswordModal();
+          showMessages();
+        }
+      } else {
+        passwordError.textContent = 'رمز عبور اشتباه است.';
+      }
+    }
+
+    // فعال/غیرفعال کردن فرم ارسال پیام
+    function enableForm() {
+      contactForm.querySelectorAll('input, textarea, button').forEach(el => {
+        el.disabled = false;
+      });
+    }
+    function disableForm() {
+      contactForm.querySelectorAll('input, textarea, button').forEach(el => {
+        el.disabled = true;
+      });
+    }
+
+    // نمایش پیام‌ها فقط اگر دسترسی داشته باشیم
+    function showMessages() {
+      if (!messageAccessGranted) {
+        openPasswordModal('برای مشاهده پیام‌ها لطفاً رمز عبور را وارد کنید.');
+        return;
+      }
+      messagesContainer.innerHTML = '';
+      if (messages.length === 0) {
+        messagesContainer.innerHTML = '<p>هنوز هیچ پیامی ارسال نشده است.</p>';
+        return;
+      }
+      messages.forEach(({name, email, message, time}, i) => {
+        const div = document.createElement('div');
+        div.className = 'message';
+        div.tabIndex = 0;
+        div.setAttribute('role', 'article');
+        div.setAttribute('aria-label', `پیام شماره ${i + 1} از ${name}`);
+        div.innerHTML = `
+          <div class="msg-header">${name} - <a href="mailto:${email}" aria-label="ایمیل ${name}">${email}</a> - <time datetime="${time.toISOString()}">${time.toLocaleString()}</time></div>
+          <div class="msg-content">${escapeHTML(message)}</div>
+        `;
+        messagesContainer.appendChild(div);
+      });
+    }
+
+    // تابع برای ایمن‌سازی متن در HTML
+    function escapeHTML(text) {
+      return text.replace(/[&<>"']/g, (m) => ({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#39;'
+      })[m]);
+    }
+
+    // لیست پیام‌ها در حافظه (Local) -- ساده ذخیره در localStorage
+    let messages = JSON.parse(localStorage.getItem('messages') || '[]').map(m => {
+      m.time = new Date(m.time);
+      return m;
+    });
+
+    // ذخیره پیام‌ها در localStorage
+    function saveMessages() {
+      localStorage.setItem('messages', JSON.stringify(messages));
+    }
+
+    // بارگذاری تم از localStorage
+    function loadTheme() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        toggleThemeBtn.classList.add('dark');
+      }
+    }
+    loadTheme();
+
+    // تغییر تم تیره و روشن
+    toggleThemeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggleThemeBtn.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // هنگام باز شدن صفحه، مودال رمز عبور را باز می‌کنیم و فرم غیرفعال است
+    disableForm();
+    openPasswordModal();
+
+    // تایید رمز عبور با کلیک دکمه یا اینتر
+    passwordSubmitBtn.addEventListener('click', () => {
+      verifyPassword(false);
+    });
+    passwordInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        verifyPassword(false);
+      }
+    });
+
+    // وقتی روی لیست پیام‌ها کلیک شود، اگر دسترسی نداشته باشیم مودال باز می‌شود
+    messagesList.addEventListener('click', () => {
+      if (!messageAccessGranted) openPasswordModal('برای مشاهده پیام‌ها لطفاً رمز عبور را وارد کنید.');
+      else showMessages();
+    });
+
+    // مدیریت ارسال فرم پیام
     contactForm.addEventListener('submit', e => {
       e.preventDefault();
+      if (!globalAccessGranted) {
+        formStatus.textContent = 'لطفاً ابتدا رمز عبور را وارد کنید.';
+        formStatus.className = 'status-error';
+        openPasswordModal();
+        return;
+      }
+      formStatus.textContent = '';
       const name = contactForm.name.value.trim();
       const email = contactForm.email.value.trim();
       const message = contactForm.message.value.trim();
-
-      if (!name || !email || !message) {
-        formStatus.textContent = 'لطفا همه فیلدها را پر کنید.';
+      if (name === '' || email === '' || message === '') {
+        formStatus.textContent = 'لطفاً همه فیلدها را پر کنید.';
         formStatus.className = 'status-error';
         return;
       }
-      // ساده چک کردن ایمیل
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      // ساده بودن اعتبارسنجی ایمیل
+      if (!/\S+@\S+\.\S+/.test(email)) {
         formStatus.textContent = 'ایمیل وارد شده معتبر نیست.';
         formStatus.className = 'status-error';
         return;
       }
-
       // ذخیره پیام
-      messages.push({ name, email, message });
-      formStatus.textContent = 'پیام شما با موفقیت ارسال شد!';
+      messages.push({name, email, message, time: new Date()});
+      saveMessages();
+      formStatus.textContent = 'پیام با موفقیت ارسال شد.';
       formStatus.className = 'status-success';
-
-      // پاک کردن فرم
       contactForm.reset();
-
-      // رندر مجدد پیام‌ها اگر رمز عبور داده شده بود
-      if (passwordVerified) renderMessages();
-    });
-
-    // رمز عبور برای دیدن پیام‌ها
-    const passwordModal = document.getElementById('passwordModal');
-    const passwordInput = document.getElementById('passwordInput');
-    const passwordSubmit = document.getElementById('passwordSubmit');
-    const passwordError = document.getElementById('passwordError');
-
-    const correctPassword = '1234'; // رمز عبور شما، می‌تونید تغییرش بدید
-    let passwordVerified = false;
-
-    function openPasswordModal() {
-      passwordModal.style.display = 'flex';
-      passwordInput.focus();
-    }
-    function closePasswordModal() {
-      passwordModal.style.display = 'none';
-      passwordInput.value = '';
-      passwordError.style.display = 'none';
-      passwordError.textContent = '';
-    }
-
-    passwordSubmit.addEventListener('click', () => {
-      const val = passwordInput.value.trim();
-      if (val === correctPassword) {
-        passwordVerified = true;
-        closePasswordModal();
-        renderMessages();
-      } else {
-        passwordError.textContent = 'رمز عبور اشتباه است.';
-        passwordError.style.display = 'block';
-        passwordInput.focus();
-      }
-    });
-
-    // Enter روی input هم مثل کلیک دکمه عمل کند
-    passwordInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        passwordSubmit.click();
-      }
-    });
-
-    // باز شدن مودال رمز عبور با کلیک روی بخش پیام‌ها (یا می‌توانید خودتان یک دکمه اضافه کنید)
-    // در این مثال با اولین تلاش برای نمایش پیام‌ها، مودال باز می‌شود
-    document.getElementById('messagesList').addEventListener('click', () => {
-      if (!passwordVerified) openPasswordModal();
-    });
-
-    // اگر بخواهید هنگام لود صفحه مودال باز شود
-    window.addEventListener('load', () => {
-      openPasswordModal();
+      messageAccessGranted = false; // برای اینکه دوباره باید رمز برای دیدن پیام‌ها بزنی
+      messagesContainer.innerHTML = '';
     });
   </script>
 </body>
